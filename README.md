@@ -70,6 +70,40 @@ uvicorn main:app --reload --port 1234
 uvicorn main:app --reload --port 1234 -- host 0.0.0.0
 ```
 
+## Agregar todos los modulos requirements.txt para poderlos instalar despues
+```sh
+pip3 freeze > requeriments.txt
+```
+
+* ver la documentación de Swagger agregando docs
+
+    http://127.0.0.1:8000/docs
+
+## Cambiando el nombre de la App y versión
+```py
+from fastapi import FastAPI
+
+app = FastAPI()  #creación de una instancia
+app.title = "My aplicación con FastAPI"  #Colocar nombre a la app
+app.version = "0.0.1" #Colocar version en especifico
+
+#creacion del endpoin
+@app.get('/', tags=['home']) #Se agrega el home para agrupar determinadas rutas
+def message():
+    return "Hello world! desde mi celular"
+
+```
+
+## Metodos HTTP
+Es aquel que define el conjunto de metodos de peticiones que indica la acción que se desea realizar para un recurso determinado del servidor.
+
+Los principales metodos usados por una **API** es:
+
+* **_POST:_** crea un recurso nuevo.
+* **_PUT:_** Modifica un recurso existente.
+* **_GET:_** consulta informaciòn de un recurso.
+* **_DELETE:_** Elimina un recurso
+
 
 
 
